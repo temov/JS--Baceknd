@@ -18,7 +18,7 @@ function loggedIn(username,password){
             } else {
                 console.log(colors.bgYellow(colors.red("User not found")));
             }
-
+                               break;
         }
 
     }
