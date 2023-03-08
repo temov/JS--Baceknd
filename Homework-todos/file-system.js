@@ -48,7 +48,8 @@ const doneTodo = (id) => {
   }
 };
 
-readTodo(1);
 deleteTodo(2);
-doneTodo(1);
+doneTodo(2);
+
+
 
