@@ -2,7 +2,7 @@ import fs from 'fs';
 
 // Read the  todos.json 
 const readTodos = () => {
-  const todos = JSON.parse(fs.readFileSync('./db/todos.json'));
+  const todos = JSON.parse(fs.readFileSync('./db/todos.json',{encoding:'utf-8'}));
   return todos;
 };
 
@@ -14,10 +14,9 @@ const writeTodos = (todos) => {
 // Function to delete a todo by its id
 const deleteTodo = (id) => {
   const todos = readTodos();
-  const indexSearch = todos.findIndex((todo) => todo.id === id);
-  if (indexSearch > -1) {
-    todos.splice(indexSearch, 1);
-    writeTodos(todos);
+  const filteredTodos = todos.filter((todo) => todo.id !== id);
+  if (filteredTodos.length < todos.length) {
+    writeTodos(filteredTodos);
     return true;
   } else {
     return false;
