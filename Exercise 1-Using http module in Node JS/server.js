@@ -4,11 +4,7 @@ import http from "http";
 
         // console.log(request)
 
-        //basic response
-
-        response.setHeader("Content-Type", "text/html");
-        response.write("<h1>Hello tutors, i'm working on my homework</h1>");
-        response.end();
+        
 
         const url = request.url;
         const method = request.method;
