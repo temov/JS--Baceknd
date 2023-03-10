@@ -41,14 +41,13 @@ const doneTodo = (id) => {
   if (index > -1) {
     todos[index].done = true;
     writeTodos(todos);
-    return true;
-  } else {
-    return false;
-  }
+  
+  } 
 };
 
-deleteTodo(2);
-doneTodo(2);
+deleteTodo('2');
+doneTodo('1');
+
 
 
 
