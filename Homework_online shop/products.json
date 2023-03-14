@@ -1,1 +1,5 @@
-[{"id":"1","name":"shoes","price":100,"rating":"4","description":"running","category":"basketball","inStock": true},{"id":"1","name":"shoes","price":100,"rating":"4","description":"running","category":"basketball","inStock": true}]
+[
+{"id":"1","name":"shoes","price":100,"rating":"4","description":"running","category":"basketball","inStock": true},
+{"id":"2","name":"boots","price":200,"rating":"4","description":"high","category":"classic","inStock": false},
+{"id":"3","name":"shirts","price":70,"rating":"4","description":"slimfit","category":"classic","inStock": false}
+]
