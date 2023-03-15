@@ -20,7 +20,7 @@ app.use((req, res, next) => {
 const timeOfRequest = (req, res, next) => {
     let time = new Date().toLocaleString();
 
-    const message = `Request on the route /pruducts was made at: ${time}`;
+    const message = `Request on the route /products was made at: ${time} `;
 
     console.log(message)
 

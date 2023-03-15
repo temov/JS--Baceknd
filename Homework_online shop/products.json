@@ -1,5 +1,38 @@
 [
-{"id":"1","name":"shoes","price":100,"rating":"4","description":"running","category":"basketball","inStock": true},
-{"id":"2","name":"boots","price":200,"rating":"4","description":"high","category":"classic","inStock": false},
-{"id":"3","name":"shirts","price":70,"rating":"4","description":"slimfit","category":"classic","inStock": false}
+  {
+    "id": "1",
+    "name": "shoes",
+    "price": 100,
+    "rating": "4",
+    "description": "running",
+    "category": "basketball",
+    "inStock": false
+  },
+  {
+    "id": "2",
+    "name": "boots",
+    "price": 200,
+    "rating": "4",
+    "description": "high",
+    "category": "classic",
+    "inStock": false
+  },
+  {
+    "id": "3",
+    "name": "shirts",
+    "price": 70,
+    "rating": "4",
+    "description": "slimfit",
+    "category": "classic",
+    "inStock": false
+  },
+  {
+    "id": "2be7ab4e-2168-4658-b644-2319ede4dd32",
+    "name": "slippers",
+    "price": 50,
+    "rating": "4",
+    "description": "homeuse",
+    "category": "mens",
+    "inStock": false
+  }
 ]

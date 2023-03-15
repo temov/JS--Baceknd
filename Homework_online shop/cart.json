@@ -1,3 +1,9 @@
-[
-    
-]
+{
+  "id": "1",
+  "name": "shoes",
+  "price": 100,
+  "rating": "4",
+  "description": "running",
+  "category": "basketball",
+  "inStock": false
+}

@@ -133,7 +133,7 @@ router.delete("/products",(request, response) => {
  
 //BONUS requrements
 
-router.post('cart/:id',(request, response)=>{
+router.post('/cart/:id',(request, response)=>{
     const id = request.params.id;
 
     const products = fs.readFileSync("./products.json", {encoding: "utf-8"});
@@ -142,7 +142,10 @@ router.post('cart/:id',(request, response)=>{
     const productFound = parsedProducts.find((product) => product.id === id);
 
     if(productFound){
-        fs.writeFileSync('./cart.json',JSON.stringify(productFound,null,2))
+        const carts = fs.readFileSync("./cart.json", {encoding: "utf-8"});
+        const parsedCarts = JSON.parse(carts);
+        parsedCarts.push(productFound);
+        fs.writeFileSync('./cart.json',JSON.stringify(parsedCarts,null,2))
     }else {
         response.status(404).send({message: "Product not found."})
     }
