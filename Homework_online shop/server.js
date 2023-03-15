@@ -37,6 +37,13 @@ app.use(express.json());
 
 app.use(router); // In this middleware we use the Router that has all the predefined routes =)
 
+app.get("*", (req, res) => {
+    res.status(404).send("Route does not exist.")
+});
+
+app.post("*", (req, res) => {
+    res.status(404).send("Route does not exist.")
+});
 
 app.listen(3000, () => {
     console.log("Server is up and running...");
