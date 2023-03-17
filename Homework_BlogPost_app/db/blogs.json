@@ -1,0 +1,19 @@
+[
+    {
+      "id": "1",
+      "title": "Tech blog",
+      "body": "HTML code about the blog",
+      "author": "Ben Stiler",
+      "date": "15-03-2023",
+      "tags":["pc", "servers", "gpu"]
+    },
+    {
+        "id": "2",
+        "title": "Sports blog",
+        "body": "HTML code about the blog",
+        "author": "Boris Becker",
+        "date": "10-03-2023",
+        "tags":["tennis", "football", "kricket"]
+    }
+   
+  ]
