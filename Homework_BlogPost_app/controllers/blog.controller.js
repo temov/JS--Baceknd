@@ -15,6 +15,14 @@ class BlogController {
         await blogModel.createBlogPost(title, body, author, date, tags)
 
     }
+    async deleteBlog(id){
+        await blogModel.deleteBlogPost(id)
+
+    }
+    async editBlog(id,reqBody){
+        await blogModel.editBlogPost(id,reqBody)
+
+    }
 }
 
 export default BlogController;
