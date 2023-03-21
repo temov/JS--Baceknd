@@ -5,6 +5,8 @@ const blogController  = new BlogController();
 
 const blogRouter = express.Router();
 
+//GET ALL => localhost:3000
+
 blogRouter.get("/",async (req,res) => {
 
 const blogs = await blogController.listBlogs();
@@ -14,6 +16,7 @@ res.send(blogs);
 
 })
 
+//Create new blogpost - post  => localhost:3000
 
 blogRouter.post("/",async (req,res) => {
 
@@ -30,7 +33,7 @@ blogRouter.post("/",async (req,res) => {
 
 })
 
-
+// Delete blogpost by given id 
 
 blogRouter.delete("/blog/:id",async (req,res)=>{
 
@@ -40,7 +43,7 @@ blogRouter.delete("/blog/:id",async (req,res)=>{
     res.status(201).send({ message: "Blogpost was deleted" });
 })
 
-
+//Edit blogpost by given id
 
 blogRouter.patch("/blog/:id",async (req,res)=>{
 
@@ -51,10 +54,12 @@ blogRouter.patch("/blog/:id",async (req,res)=>{
     res.status(201).send({ message: "Blogpost was edited" });
 })
 
+//Filter blogposts that matches tags property
+
 blogRouter.get("/blog",async (req,res)=>{
 
-    const tags = req.query.tags;
-    await blogController.filterBlog(tags);
+    const tag = req.query.tag;
+    await blogController.filterBlog(tag);
 
     res.status(201).send({ message: "Blogpost was filtered" });
 })

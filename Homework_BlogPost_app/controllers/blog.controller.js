@@ -6,13 +6,13 @@ class BlogController {
 
     async listBlogs(){
 
-         listedBlogs = await blogModel.getAllBlogs();
+        const  listedBlogs = await blogModel.getAllBlogs();
 
          return listedBlogs;
     }
 
-    async createBlog(title, body, author, date, tags){
-        await blogModel.createBlogPost(title, body, author, date, tags)
+    async createBlog(id,title, body, author, date, tags){
+        await blogModel.createBlogPost(id,title, body, author, date, tags)
 
     }
     async deleteBlog(id){
@@ -23,8 +23,8 @@ class BlogController {
         await blogModel.editBlogPost(id,reqBody)
 
     }
-    async filterBlog(tags){
-        await blogModel.filterBlogsByTags(tags) 
+    async filterBlog(tag){
+        await blogModel.filterBlogsByTags(tag) 
 
 
     }

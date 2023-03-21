@@ -11,11 +11,11 @@ class BlogModel {
     }
     //  Adding new blog post
 
-    async createBlogPost(title, body, author, date, tags) {
+    async createBlogPost(id,title, body, author, date, tags) {
         const rawBlogs = await fileService.readFile("./db/blogs.json");
         const blogs = JSON.parse(rawBlogs);
 
-        const blog = new Blog(title, body, author, date, tags);
+        const blog = new Blog(id,title, body, author, date, tags);
 
         blogs.push(blog);
 
@@ -31,13 +31,11 @@ class BlogModel {
         const filteredBlogs = blogs.filter((blog) => blog.id !== id);
 
         if (filteredBlogs.length === blogs.length) {
-            res.status(404).send(`Blog with id: ${id} does not exist.`);
+            throw new Error(`Blog with id: ${id} does not exist.`);
 
-        } else {
-
-            await fileService.writeFile("./db/blogs.json", JSON.stringify(filteredBlogs, null, 2));
-            res.status(201).send(`Blog with id: ${id} was deleted.`);
-        }
+        } 
+  
+        await fileService.writeFile("./db/blogs.json", JSON.stringify(filteredBlogs, null, 2));
     }
 
     //Edit existing Blog post
@@ -46,7 +44,7 @@ class BlogModel {
         const rawBlogs = await fileService.readFile("./db/blogs.json");
         const blogs = JSON.parse(rawBlogs);
 
-        const editedBlogs = blogs.map(blog => {
+        const editedBlogs = blogs.map((blog) => {
 
 
             if (blog.id == id) {
@@ -57,37 +55,38 @@ class BlogModel {
 
                 return blog;
             }
-
+            return blog;
 
         })
 
         await fileService.writeFile("./db/blogs.json", JSON.stringify(editedBlogs, null, 2));
-        res.status(201).send(`Blog  was updated.`);
-
-
-
 
     }
+
     // Bonus requrements - Filter blogposts by tags-key
-    async filterBlogsByTags(tags) {
+    async filterBlogsByTags(tag) {
 
         const rawBlogs = await fileService.readFile("./db/blogs.json");
         const blogs = JSON.parse(rawBlogs);
 
         const filteredBlogs = blogs.filter(blog => {
 
-            tags.forEach(tag=>blog.tags.includes(tag))
+           for( i=0; i < blog.tags.length; i++){
+
+            if ( blog.tags[i] === tag){
+
+                return blog;
+            }
+           }
 
             return blog;
         
         })
 
         await fileService.writeFile("./db/blogs.json", JSON.stringify(filteredBlogs, null, 2));
-        res.status(201).send(`Blog with given tags query parameter was found.`);
+       
     }
 }
-
-
 
 
 
