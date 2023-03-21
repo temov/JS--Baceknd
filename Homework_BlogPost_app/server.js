@@ -6,12 +6,9 @@ const app = express();
 
 app.use(express.json());
 
-app.use("/blogs", blogRouter);
+app.use("/blog", blogRouter);
 
-/**
- * USING MVC
- * make functionallity to display all motorbikes on route /motor_bikes
- */
+
 
 app.listen(3000, () => {
     console.log("Server is up and running on port: 3000...")

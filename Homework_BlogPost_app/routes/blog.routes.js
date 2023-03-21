@@ -42,15 +42,24 @@ blogRouter.delete("/blog/:id",async (req,res)=>{
 
 
 
-blogRouter.patch("/blog",async (req,res)=>{
+blogRouter.patch("/blog/:id",async (req,res)=>{
 
     const id = req.params.id;
     const reqBody = req.body;
     await blogController.editBlog(id,reqBody);
 
-    res.status(201).send({ message: "Blogpost was deleted" });
+    res.status(201).send({ message: "Blogpost was edited" });
 })
+
+blogRouter.get("/blog",async (req,res)=>{
+
+    const tags = req.query.tags;
+    await blogController.filterBlog(tags);
+
+    res.status(201).send({ message: "Blogpost was filtered" });
+})
+
+
 
 export default blogRouter;
 
-//

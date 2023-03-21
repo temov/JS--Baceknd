@@ -23,6 +23,11 @@ class BlogController {
         await blogModel.editBlogPost(id,reqBody)
 
     }
+    async filterBlog(tags){
+        await blogModel.filterBlogsByTags(tags) 
+
+
+    }
 }
 
 export default BlogController;

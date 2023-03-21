@@ -9,8 +9,8 @@ class BlogModel {
 
         return blogs;
     }
-//  Adding new blog post
-    
+    //  Adding new blog post
+
     async createBlogPost(title, body, author, date, tags) {
         const rawBlogs = await fileService.readFile("./db/blogs.json");
         const blogs = JSON.parse(rawBlogs);
@@ -41,7 +41,7 @@ class BlogModel {
     }
 
     //Edit existing Blog post
-    async editBlogPost(id,reqBody) {
+    async editBlogPost(id, reqBody) {
 
         const rawBlogs = await fileService.readFile("./db/blogs.json");
         const blogs = JSON.parse(rawBlogs);
@@ -58,8 +58,6 @@ class BlogModel {
                 return blog;
             }
 
-            return blog;
-
 
         })
 
@@ -70,24 +68,22 @@ class BlogModel {
 
 
     }
-// Bonus requrements - Filter blogposts by tags-key
-    async filterBlogsByTags(tags){
+    // Bonus requrements - Filter blogposts by tags-key
+    async filterBlogsByTags(tags) {
 
         const rawBlogs = await fileService.readFile("./db/blogs.json");
         const blogs = JSON.parse(rawBlogs);
 
-        const filteredBlogs = blogs.filter(blog=>{
+        const filteredBlogs = blogs.filter(blog => {
 
-            if(blog.tags = tags){
+            tags.forEach(tag=>blog.tags.includes(tag))
 
-                return blog;
-            }
-            
             return blog;
-        })
         
-            await fileService.writeFile("./db/blogs.json", JSON.stringify(filteredBlogs, null, 2));
-            res.status(201).send(`Blog with given tags query parameter was found.`);
+        })
+
+        await fileService.writeFile("./db/blogs.json", JSON.stringify(filteredBlogs, null, 2));
+        res.status(201).send(`Blog with given tags query parameter was found.`);
     }
 }
 
