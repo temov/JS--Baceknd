@@ -69,24 +69,26 @@ class BlogModel {
         const rawBlogs = await fileService.readFile("./db/blogs.json");
         const blogs = JSON.parse(rawBlogs);
 
-        const filteredBlogs = blogs.filter(blog => {
+        const filteredBlogs = blogs.filter((blog) => {
 
-           for( i=0; i < blog.tags.length; i++){
+           for( let i=0; i < blog.tags.length; i++){
 
             if ( blog.tags[i] === tag){
 
                 return blog;
             }
+            
            }
 
             return blog;
         
         })
-
-        await fileService.writeFile("./db/blogs.json", JSON.stringify(filteredBlogs, null, 2));
-       
+       await fileService.writeFile("./db/blogs.json", JSON.stringify(filteredBlogs, null, 2));
     }
+
 }
+    
+
 
 
 

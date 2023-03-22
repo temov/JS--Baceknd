@@ -61,6 +61,7 @@ blogRouter.get("/blog",async (req,res)=>{
     const tag = req.query.tag;
     await blogController.filterBlog(tag);
 
+
     res.status(201).send({ message: "Blogpost was filtered" });
 })
 
