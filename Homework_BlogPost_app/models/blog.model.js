@@ -71,19 +71,10 @@ class BlogModel {
 
         const filteredBlogs = blogs.filter((blog) => {
 
-           for( let i=0; i < blog.tags.length; i++){
-
-            if ( blog.tags[i] === tag){
-
-                return blog;
-            }
-            
-           }
-
-            return blog;
+        return blog.tags.includes(tag);
         
         })
-       await fileService.writeFile("./db/blogs.json", JSON.stringify(filteredBlogs, null, 2));
+        return filteredBlogs;
     }
 
 }

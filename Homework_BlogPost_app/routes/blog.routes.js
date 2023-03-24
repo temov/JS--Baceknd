@@ -59,10 +59,10 @@ blogRouter.patch("/blog/:id",async (req,res)=>{
 blogRouter.get("/blog",async (req,res)=>{
 
     const tag = req.query.tag;
-    await blogController.filterBlog(tag);
+    const foundBlog = await blogController.filterBlog(tag);
 
 
-    res.status(201).send({ message: "Blogpost was filtered" });
+    res.send(foundBlog);
 })
 
 

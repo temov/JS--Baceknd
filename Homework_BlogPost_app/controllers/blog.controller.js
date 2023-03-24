@@ -24,7 +24,7 @@ class BlogController {
 
     }
     async filterBlog(tag){
-        await blogModel.filterBlogsByTags(tag) 
+       return await blogModel.filterBlogsByTags(tag) 
 
 
 
