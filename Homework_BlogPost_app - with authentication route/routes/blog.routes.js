@@ -41,14 +41,14 @@ blogRouter.post("/",authSession,blogSession,async (req,res) => {
         res.status(401).send({message: "Please loggin first"});
     }
 
-    if(!body.title || !body.body || !body.author ||!body.date ||!body.tags){
-        res.status(400).send({message: "Request body invalid"});
-        return;
-    }
+    // if(!body.title || !body.body || !body.author ||!body.date ||!body.tags){
+    //     res.status(400).send({message: "Request body invalid"});
+    //     return;
+    // }
 
-    await blogController.createBlog(body.title, body.body, body.author, body.date, body.tags);
+    // await blogController.createBlog(body.title, body.body, body.author, body.date, body.tags);
 
-    res.status(201).send({message: "Blog post was created."})
+    // res.status(201).send({message: "Blog post was created."})
 
 })
 

@@ -13,11 +13,16 @@ authRouter.post("/login",authSession,async (req,res)=>{
     const username = req.body.username;
     const password = req.body.password;
 
-    if( username === users.username && password === users.password){
+    const userFound = users.find(
+        (user)=> user.username === username && user.password === password
+        
+        )
+
+    if( userFound){
 
         req.session.user = {
 
-            user:username,
+            user:userFound.username,
             isLoggedIn:true
         }
         res.send({message:'Logged in success'})
