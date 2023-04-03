@@ -1,0 +1,20 @@
+{
+  "name": "e-commerce_app",
+  "version": "1.0.0",
+  "description": "## ECommerce app ECommerce is rocking both on the web and mobile and we can’t ignore the massive size of this industry. Knowing how to build and maintain e-commerce apps is going to help you a lot as an app developer.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^7.0.3"
+  },
+  "devDependencies": {}
+}

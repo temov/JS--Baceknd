@@ -1,0 +1,18 @@
+{
+	"info": {
+		"_postman_id": "3c1cbd47-9c33-4bbe-a425-6921262287b7",
+		"name": "Product_app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26373104"
+	},
+	"item": [
+		{
+			"name": "Add products",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
