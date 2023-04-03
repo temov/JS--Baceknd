@@ -18,11 +18,11 @@ class OrdersContoller {
     }
 
     async addOrder(req, res){
-        const { productIds } = req.body;
+        const { customerIds } = req.body;
 
         const orderData = {
-            order_date: new Date().toLocaleDateString(),
-            items: productIds
+            
+            customer_id: customerIds
         }
 
         await orderModel.addOrder(orderData)

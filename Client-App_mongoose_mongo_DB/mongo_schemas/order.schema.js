@@ -3,15 +3,13 @@ import mongoose from "mongoose";
 const { Schema } = mongoose;
 
 const orderSchema = new Schema({
-    order_date: {
-        type: String
-    },
+   
 
-    items: [
+    customer_id: [
         {
             type: Schema.Types.ObjectId,
-            ref: "Product" // Will give us access to populate method
-            // will reference to the Product document with the coresponding id
+            ref: "Customer" // Will give us access to populate method
+            
         }
     ]
 });
