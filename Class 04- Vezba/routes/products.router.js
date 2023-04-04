@@ -37,9 +37,10 @@ productRouter.get('/:id', async(req, res) => {
 
     res.send(product);
 });
-productRouter.post('/', async(req, res) => {
+productRouter.post('/search', async(req, res) => {
 
-    const{name} = req.body
+    const{name} = req.body;
+
     const product = await productController.searchProduct(name);
 
     res.send(product);
