@@ -15,7 +15,9 @@ let arrayOfPeople: Person[] = [
     { name: 'Kim', age: 40, gender: 'female' }
 ]
 
-function filterByProperty(people:Person[], property:string, value:string | number):Person[]{
+
+function filterByProperty(people:Person[], property:string, value:string):Person[]{
+
 
     const foundPeople = people.filter(person=>person[property] === value);
 
@@ -28,6 +30,6 @@ const malePeople = filterByProperty(arrayOfPeople,"gender","male");
 
 console.log(malePeople);
 
-const peopleWithAge30 = filterByProperty(arrayOfPeople,"age",30);
+const peopleWithAge30 = filterByProperty(arrayOfPeople,"age","30");
 
 console.log(peopleWithAge30);
