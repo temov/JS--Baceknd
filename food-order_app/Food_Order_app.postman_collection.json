@@ -118,15 +118,24 @@
 			"request": {
 				"method": "PUT",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n            \"date\":\"2023-05-20\",\r\n            \"productsOrdered\":[\r\n                {\"id\":\"5\", \"productName\":\"Pancake\",\"productPrice\":2},\r\n                {\"id\":\"6\", \"productName\":\"Crispy chicken\",\"productPrice\":5}\r\n            ]\r\n        }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "localhost:3000/orders/2",
+					"raw": "localhost:3000/orders/3",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
 						"orders",
-						"2"
+						"3"
 					]
 				}
 			},
