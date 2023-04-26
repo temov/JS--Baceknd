@@ -8,6 +8,6 @@ import { ProductsModule } from './products/products.module';
 @Module({
   imports: [OrdersModule, ProductsModule],
   controllers: [AppController],
-  providers: [AppService,OrderService],
+  providers: [AppService],
 })
 export class AppModule {}
