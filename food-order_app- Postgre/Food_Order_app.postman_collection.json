@@ -1,0 +1,145 @@
+{
+	"info": {
+		"_postman_id": "3217821f-8669-486e-803a-ff17bed0cf99",
+		"name": "Food_Order_app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26373104"
+	},
+	"item": [
+		{
+			"name": "Default route",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000",
+					"host": [
+						"localhost"
+					],
+					"port": "3000"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Orders route",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/orders",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetOrderById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/orders/972ab140-db8f-4b38-9698-191c2ccaedb8",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"orders",
+						"972ab140-db8f-4b38-9698-191c2ccaedb8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteOrder",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n            \"date\":\"2023-05-25\",\r\n            \"productsOrdered\":[\r\n                {\"id\":\"9\", \"productName\":\"Fried cheese\",\"productPrice\":5},\r\n                {\"id\":\"10\", \"productName\":\"Peach Pie\",\"productPrice\":5}\r\n            ]\r\n        }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/orders/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"orders",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateNewOrder",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n    \"name\":\"Banana Split\",\r\n    \"date\":\"2023-05-20\",\r\n    \"productsOrdered\":[\r\n                {\"id\":\"10\", \"productName\":\"Chicken wings\",\"productPrice\":5},\r\n                {\"id\":\"11\", \"productName\":\"Meat loaf\",\"productPrice\":10}\r\n            ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/orders",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateOrder",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n            \"date\":\"2023-05-20\",\r\n            \"productsOrdered\":[\r\n                {\"id\":\"5\", \"productName\":\"Pancake\",\"productPrice\":2},\r\n                {\"id\":\"6\", \"productName\":\"Crispy chicken\",\"productPrice\":5}\r\n            ]\r\n        }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/orders/3",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"orders",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
