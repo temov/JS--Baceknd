@@ -5,6 +5,7 @@ export class OrderDto{
 
     id:string;
     date:Date;
-    @IsNotEmpty()
-    productsOrdered:Product[];
+    
+   
+    
 }

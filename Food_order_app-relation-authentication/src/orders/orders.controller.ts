@@ -14,7 +14,7 @@ interface IdRouteParams{
 //localhost:3000/orders 
 @Controller('orders')
 // @UseGuards(MyGuardGuard)
-@UseGuards(JwtAuthGuard)
+// @UseGuards(JwtAuthGuard)
 export class OrdersController {
     // orderService = new OrderService();
     constructor(

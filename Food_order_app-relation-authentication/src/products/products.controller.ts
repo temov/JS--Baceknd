@@ -1,4 +1,4 @@
-import { Controller,Get,Post,Body,Req,Param ,HttpException, HttpStatus} from '@nestjs/common';
+import { Controller,Get,Post,Body,Req,Param ,HttpException, HttpStatus, Delete} from '@nestjs/common';
 import { ProductsService } from './products.service';
 import { ProductDto } from './dto/product.dto';
 
@@ -21,6 +21,8 @@ export class ProductsController {
     return products;
   }
 
+   //localhost:3000/products/id
+
   @Get(':id')
   getProductsById(
   @Req() request:Request,
@@ -36,15 +38,24 @@ export class ProductsController {
       return product;
   }
 
-  @Post()
-  async createProduct(@Body() body: ProductDto) 
+  @Post(":orderId")
+  async createProduct(@Body() body: ProductDto,orderId:string) 
   {
 
-    const id = await this.productService.createProduct(body);
+    const id = await this.productService.createProduct(body,orderId);
 
     return {
       message: `Product was created`,
       id: id,
+    };
+  }
+  
+  @Delete(':id')
+  async deleteOne(@Param('id') id: string) {
+    await this.productService.deleteProduct(id);
+
+    return {
+      message: `Product with id: ${id} was deleted.`,
     };
   }
 

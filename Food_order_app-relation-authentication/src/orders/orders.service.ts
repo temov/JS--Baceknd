@@ -4,11 +4,18 @@ import { Order } from '../interfaces/order.interface';
 import { OrderDto } from './dto/order.dto';
 import { UpdateDto } from './dto/update.dto';
 import { v4 as uuid} from 'uuid';
+import { OrderEntity } from './entitites/order.entity';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 
 @Injectable()
 
 export class OrderService{
 
+    constructor(
+        @InjectRepository(OrderEntity)
+        private readonly orderRepository: Repository<OrderEntity>,
+      ) {}
     
         //creating hardcoded array of orders
     private _orders:Order[]=[
@@ -16,34 +23,33 @@ export class OrderService{
         {
             id:'1',
             date:new Date(),
-            productsOrdered:[
-                {id:'1', productName:'Cheese Burger',productPrice:5},
-                {id:'2', productName:'Bacon burger',productPrice:6},
-            ]
+            
+        
+            
         },
         {
             id:'2',
             date:new Date(),
-            productsOrdered:[
-                {id:'3', productName:'Chicken wings',productPrice:5},
-                {id:'4', productName:'French fries',productPrice:2},
-            ]
+            
+            
         },
         {
             id: '3',
             date: new Date(),
-            productsOrdered: [
-                {id: "5",productName: "Ice cream",productPrice: 2},
-                {id: "6",productName: "Pizza",productPrice: 5}
-            ]
+           
         }
+            
         
     ]
 
     getOrders() {
 
-        return this._orders;
+        return this.orderRepository.find({
+            relations: ['productsOrdered'],
+          });
     }
+
+    //I'm here for changes
 
     getOrdersById(id:string) {
 
@@ -52,18 +58,21 @@ export class OrderService{
         return findOrdersbyId;
     }
 
-    createOrder(OrderDto: OrderDto){
+    async createOrder(OrderDto: OrderDto){
 
         const newOrder:Order = {
 
             ...OrderDto,
             id:uuid(),
             date:new Date(OrderDto.date),
+            
+            
 
         }
-            console.log(newOrder)
-        this._orders.push(newOrder);
-            console.log(1,this._orders)
+        const createdNewProduct= this.orderRepository.create(newOrder);
+        const savedProduct = await this.orderRepository.save(createdNewProduct);
+
+        console.log(savedProduct)
         return newOrder.id;
     }
 

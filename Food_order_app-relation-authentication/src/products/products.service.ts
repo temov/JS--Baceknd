@@ -5,13 +5,16 @@ import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { ProductDto } from 'src/products/dto/product.dto';
 import { v4 as uuid} from 'uuid';
+import { OrderEntity } from 'src/orders/entitites/order.entity';
 
 @Injectable()
 export class ProductsService {
 
     constructor(
         @InjectRepository(ProductEntity)
-        private readonly productRepository:Repository<ProductEntity>
+        private readonly productRepository:Repository<ProductEntity>,
+        @InjectRepository(OrderEntity)
+        private readonly orderRepository:Repository<OrderEntity>
     ){}
 
     private readonly _products:Product[]=[
@@ -33,30 +36,37 @@ export class ProductsService {
         }
     ]
 
-    getProduct() {
+    getProduct():Promise<ProductEntity[]> {
 
-        return this.productRepository.find();
+        return this.productRepository.find({ relations: ['order'] });
     }
 
-    async getProductById(id:string) {
+    async getProductById(id:string):Promise<ProductEntity> {
 
-        const findProductbyId = await this.productRepository.findOneBy({id:id});
+        const findProduct = await this.productRepository.findOneBy({id:id});
 
-        return findProductbyId;
+        return findProduct;
     }
 
-    async createProduct(productDto:ProductDto) {
+    async createProduct(productDto:ProductDto,orderId:string):Promise<string> {
 
-        const newProduct:Product = {
+           const order = await this.orderRepository.findOneBy({ id: orderId });
+       
+           const createdProduct = this.productRepository.create({
             id: uuid(),
-            productPrice: productDto.productPrice,
-            productName: productDto.productName
-        }
+           ...productDto,
 
-        const objectOfProductEntity = this.productRepository.create(newProduct);
-        const productSaved = await this.productRepository.save(objectOfProductEntity);
-        console.log(productSaved)
+           order:order,
+           
+        })
 
-        return newProduct.id;
+        const productSaved = await this.productRepository.save(createdProduct);
+
+        return productSaved.id;
     }
+
+     // Remove product
+  async deleteProduct(id: string) {
+    await this.productRepository.delete(id);
+  }
 }

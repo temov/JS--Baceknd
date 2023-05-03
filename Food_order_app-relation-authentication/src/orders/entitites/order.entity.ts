@@ -1,5 +1,4 @@
 import { Order } from "src/interfaces/order.interface";
-import { Product } from "src/interfaces/product.interface";
 import { ProductEntity } from "src/products/entities/product.entity";
 import { PrimaryColumn, Column, Entity, OneToMany } from "typeorm";
 
@@ -12,10 +11,11 @@ export class OrderEntity implements Order{
 id:string;
 
 @Column()
-date:Date
+date:Date;
+
 
 @OneToMany(()=>ProductEntity,(productEntity)=>productEntity.order)
-productsOrdered: Product[];
+productsOrdered: ProductEntity[];
 
 }
 
