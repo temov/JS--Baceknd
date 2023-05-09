@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "85d641ad-a42e-4fd6-b639-df17bf40316b",
-		"name": "Food_Order_app",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"_postman_id": "822c22f6-23f9-42c0-b5d5-a6b44486022a",
+		"name": "Food_Order_app Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26373104"
 	},
 	"item": [
 		{
@@ -217,6 +218,24 @@
 					"path": [
 						"auth",
 						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/products",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products"
 					]
 				}
 			},
