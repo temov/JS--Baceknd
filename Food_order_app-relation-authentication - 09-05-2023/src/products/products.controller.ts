@@ -27,6 +27,7 @@ export class ProductsController {
    //localhost:3000/products/id
 
   @Get(':id')
+  @Roles(Role.USER)
   async getProductsById( @Param('id') id:string) {
 
 

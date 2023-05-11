@@ -1,9 +1,8 @@
 {
 	"info": {
-		"_postman_id": "822c22f6-23f9-42c0-b5d5-a6b44486022a",
-		"name": "Food_Order_app Copy",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "26373104"
+		"_postman_id": "85d641ad-a42e-4fd6-b639-df17bf40316b",
+		"name": "Food_Order_app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
@@ -28,19 +27,18 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkJyYWRkIFBpdHQiLCJzdWIiOjIsImlhdCI6MTY4MjkwMDcyNCwiZXhwIjoxNjgyOTAwNzg0fQ.c2weuvtDHWZJEf1VOpT3h23YtFhuw8fVqeBLVCLalPE",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlRvbSBDcnVpc2UiLCJzdWIiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4Mzc5NTEyMCwiZXhwIjoxNjgzNzk1MTgwfQ.IfUUoQQk014D-3UiCIKVahFmP0WEfEHHpeFmUGfOun8",
 						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "localhost:3000/orders/2",
+					"raw": "localhost:3000/orders",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
-						"orders",
-						"2"
+						"orders"
 					]
 				}
 			},
@@ -152,16 +150,31 @@
 			"name": "Create new product",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlRvbSBDcnVpc2UiLCJzdWIiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4Mzc5NzA1OCwiZXhwIjoxNjgzNzk3MTE4fQ.DGMOy9EGmNyqJ81iGNNd0t1nJNZwcXd7POYxglX2qHs",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productName\":\"Tuna salad\",\r\n    \"productPrice\":2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "localhost:3000/products/c6d4fea8-ea69-4ac5-ac55-e85f5b4fc45b",
+					"raw": "localhost:3000/products/c1d92403-5d7d-4702-bc6e-8c175cf62bc7",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
 						"products",
-						"c6d4fea8-ea69-4ac5-ac55-e85f5b4fc45b"
+						"c1d92403-5d7d-4702-bc6e-8c175cf62bc7"
 					]
 				}
 			},
@@ -227,7 +240,13 @@
 			"name": "Get all products",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlRvbSBDcnVpc2UiLCJzdWIiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4Mzc5NDkxMiwiZXhwIjoxNjgzNzk0OTcyfQ.upFA0GWTupRaW1yIGKIVV9F4ISNqwLWHGgTxEt_Ltkg",
+						"type": "default"
+					}
+				],
 				"url": {
 					"raw": "localhost:3000/products",
 					"host": [
@@ -236,6 +255,56 @@
 					"port": "3000",
 					"path": [
 						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Product byID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlRvbSBCcmFkeSIsInN1YiI6NCwicm9sZSI6InVzZXIiLCJpYXQiOjE2ODM3OTc0NTAsImV4cCI6MTY4Mzc5NzUxMH0.nMgJIVEQpXGMHXHJUnfQ8WG26uIpLpL8-AYP4FG9KfU",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/products/4191b046-bb0d-4692-bdf4-4d47a532db6f",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products",
+						"4191b046-bb0d-4692-bdf4-4d47a532db6f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete product",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer ",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/products/4191b046-bb0d-4692-bdf4-4d47a532db6f",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products",
+						"4191b046-bb0d-4692-bdf4-4d47a532db6f"
 					]
 				}
 			},
